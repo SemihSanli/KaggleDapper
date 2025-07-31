@@ -143,4 +143,5 @@ Projenin kullanıcıya sunduğu özellikleri daha anlaşılır kılmak için aş
 <img width="2267" height="721" alt="Ekran görüntüsü 2025-07-31 171618" src="https://github.com/user-attachments/assets/cce7364e-e58b-4fa1-b535-1f2bb7c73fdb" />
 <img width="1369" height="946" alt="Ekran görüntüsü 2025-07-31 172211" src="https://github.com/user-attachments/assets/6b4d531b-3629-433f-bd0d-87b573690070" />
 <img width="1348" height="959" alt="Ekran görüntüsü 2025-07-31 172236" src="https://github.com/user-attachments/assets/c7844364-013b-4f0f-b4c6-83decba54a1c" />
+<img width="1361" height="1079" alt="Ekran görüntüsü 2025-07-31 172039" src="https://github.com/user-attachments/assets/58ae5c7b-f9c7-47ed-8e9d-0ffebb7b7ca0" />
 

@@ -1,0 +1,199 @@
+﻿@model List<Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs>
+<div class="row mb-4">
+    <div class="col-md-8">
+        <div class="chart-container">
+            <h4 class="section-title">
+                <i class="fas fa-chart-bar mr-3" style="color: var(--accent-gold);"></i>
+                En Yüksek Gelirli ve Oy Alan 5 Film
+            </h4>
+            <canvas id="revenueChart" style="height: 400px !important;"></canvas>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="revenue-stats">
+            <h5 class="text-gold mb-3">Film İstatistikleri</h5>
+            <div class="stat-item">
+                <span class="stat-label">Toplam Film:</span>
+                <span class="stat-value">@Model.Count</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">En Yüksek Gelir:</span>
+                <span class="stat-value">$@Model.Max(x => x.revenue).ToString("N0")</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">En Çok Oy Alan:</span>
+                <span class="stat-value">@Model.Max(x => x.vote_count).ToString("N0")</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Ortalama Gelir:</span>
+                <span class="stat-value">$@Model.Average(x => x.revenue).ToString("N0")</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Veritabanından gelen veriyi JavaScript'e aktar
+    const revenueDataFromDB = @Html.Raw(Json.Serialize(Model));
+
+    // Chart.js için veriyi hazırla
+    const revenueData = {
+        labels: revenueDataFromDB.map(item => item.title),
+        revenue: revenueDataFromDB.map(item => item.revenue),
+        voteCount: revenueDataFromDB.map(item => item.vote_count)
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeRevenueChart();
+    });
+
+    function initializeRevenueChart() {
+        Chart.defaults.color = '#FFFFFF';
+        Chart.defaults.borderColor = 'rgba(255, 255, 255, 0.1)';
+
+        const revenueCtx = document.getElementById('revenueChart');
+        if (revenueCtx) {
+            new Chart(revenueCtx.getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: revenueData.labels,
+                    datasets: [{
+                        label: 'Gelir ($)',
+                        data: revenueData.revenue,
+                        backgroundColor: '#32CD32',
+                        borderColor: '#1B1A2F',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        yAxisID: 'y'
+                    }, {
+                        label: 'Oy Sayısı',
+                        data: revenueData.voteCount,
+                        backgroundColor: '#FFD700',
+                        borderColor: '#1B1A2F',
+                        borderWidth: 2,
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#FFFFFF',
+                                font: {
+                                    family: 'Poppins',
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(27, 26, 47, 0.9)',
+                            titleColor: '#FFD700',
+                            bodyColor: '#FFFFFF',
+                            borderColor: '#FFD700',
+                            borderWidth: 1,
+                            callbacks: {
+                                label: function(context) {
+                                    if (context.dataset.label === 'Gelir ($)') {
+                                        return `Gelir: $${context.parsed.y.toLocaleString()}`;
+                                    } else {
+                                        return `Oy Sayısı: ${context.parsed.y.toLocaleString()}`;
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                callback: function(value) {
+                                    return '$' + (value / 1000000).toFixed(1) + 'M';
+                                }
+                            }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            beginAtZero: true,
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                callback: function(value) {
+                                    return (value / 1000).toFixed(0) + 'K';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#FFFFFF',
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
+</script>
+
+<style>
+    .revenue-stats {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        border: 1px solid var(--border-color);
+        height: 100%;
+    }
+
+    .text-gold {
+        color: var(--accent-gold);
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .stat-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+
+    .stat-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+
+    .stat-value {
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--accent-gold);
+    }
+</style>

@@ -1,0 +1,536 @@
+﻿@model MoviesDetailDTOs
+@{
+    ViewData["Title"] = "Film Detayları";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container">
+    <!-- Film Başlık Kartı -->
+    <div class="movie-header-card">
+        <div class="movie-poster-section">
+            <img src="@(string.IsNullOrEmpty(Model.poster_path) ? "/images/default-poster.jpg" : $"https://image.tmdb.org/t/p/w500{Model.poster_path}")" alt="@Model.title" class="movie-poster">
+        </div>
+        <div class="movie-info-section">
+            <div class="title-section">
+                <h1 class="movie-title">@Model.title</h1>
+                @if (!string.IsNullOrEmpty(Model.homepage))
+                {
+                    <a href="@Model.homepage" class="homepage-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                }
+            </div>
+            <div class="movie-rating">
+                <div class="stars">
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        if (i <= Model.vote_average)
+                        {
+                            <i class="fas fa-star filled"></i>
+                        }
+                        else
+                        {
+                            <i class="fas fa-star"></i>
+                        }
+                    }
+                </div>
+                <span class="rating-text">@Model.vote_average/10 (@Model.vote_count.ToString("N0") oy)</span>
+            </div>
+            <p class="movie-tagline">@Model.tagline</p>
+            <div class="movie-meta">
+                <span class="meta-item"><i class="fas fa-calendar"></i> @Model.release_date?.ToString("dd.MM.yyyy")</span>
+                <span class="meta-item"><i class="fas fa-clock"></i> @Model.runtime dakika</span>
+                <span class="meta-item"><i class="fas fa-globe"></i> @Model.original_language?.ToUpper()</span>
+                <span class="meta-item"><i class="fas fa-circle"></i> @Model.status</span>
+                <span class="meta-item"><i class="fas fa-user"></i> @(Model.adult ? "Yetişkin" : "Genel")</span>
+            </div>
+
+            <!-- Film Türleri -->
+            @if (!string.IsNullOrEmpty(Model.genres))
+            {
+                <div class="genres-section">
+                    <h3 class="genres-title">Film Türleri:</h3>
+                    <div class="tags">
+                        @foreach (var genre in Model.genres.Split(','))
+                        {
+                            <span class="tag">@genre.Trim()</span>
+                        }
+                    </div>
+                </div>
+            }
+
+            <!-- Film Açıklaması -->
+            @if (!string.IsNullOrEmpty(Model.overview))
+            {
+                <div class="overview-section">
+                    <h3 class="overview-title">Film Açıklaması:</h3>
+                    <p class="movie-overview">@Model.overview</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- İstatistikler - Üst Satır -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+            <div class="stat-value">$@Model.budget.ToString("N0")</div>
+            <div class="stat-label">Bütçe</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+            <div class="stat-value">$@Model.revenue.ToString("N0")</div>
+            <div class="stat-label">Gelir</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-eye"></i></div>
+            <div class="stat-value">@Model.popularity.ToString("F1")</div>
+            <div class="stat-label">Popülerlik</div>
+        </div>
+    </div>
+
+    <!-- İstatistikler - Alt Satır -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
+            <div class="stat-value">@Model.vote_average.ToString("F1")</div>
+            <div class="stat-label">Ortalama Puan</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-users"></i></div>
+            <div class="stat-value">@Model.vote_count.ToString("N0")</div>
+            <div class="stat-label">Oy Sayısı</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-clock"></i></div>
+            <div class="stat-value">@Model.runtime</div>
+            <div class="stat-label">Süre (dk)</div>
+        </div>
+    </div>
+
+    <!-- Detay Bilgileri -->
+    <div class="details-grid">
+        <div class="content-card">
+            <h2 class="section-title">Yapım Şirketleri</h2>
+            <div class="tags">
+                @if (!string.IsNullOrEmpty(Model.production_companies))
+                {
+                    @foreach (var company in Model.production_companies.Split(','))
+                    {
+                        <span class="tag">@company.Trim()</span>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">Yapım Ülkeleri</h2>
+            <div class="tags">
+                @if (!string.IsNullOrEmpty(Model.production_countries))
+                {
+                    @foreach (var country in Model.production_countries.Split(','))
+                    {
+                        <span class="tag">@country.Trim()</span>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="content-card">
+            <h2 class="section-title">Konuşulan Diller</h2>
+            <div class="tags">
+                @if (!string.IsNullOrEmpty(Model.spoken_languages))
+                {
+                    @foreach (var language in Model.spoken_languages.Split(','))
+                    {
+                        <span class="tag">@language.Trim()</span>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Anahtar Kelimeler -->
+    @if (!string.IsNullOrEmpty(Model.keywords))
+    {
+        <div class="content-card">
+            <h2 class="section-title">Anahtar Kelimeler</h2>
+            <div class="tags">
+                @foreach (var keyword in Model.keywords.Split(','))
+                {
+                    <span class="tag">@keyword.Trim()</span>
+                }
+            </div>
+        </div>
+    }
+
+    <!-- Ek Bilgiler -->
+
+
+    <!-- Geri Dön Butonu -->
+    <div class="back-button-container">
+        <a href="/Film/Index" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Filmler Sayfasına Dön
+        </a>
+    </div>
+</div>
+
+<style>
+    /* Film Başlık Kartı */
+    .movie-header-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        gap: 30px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        border: 1px solid var(--border-color);
+    }
+
+    .movie-poster-section {
+        flex-shrink: 0;
+    }
+
+    .movie-poster {
+        width: 300px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 8px 24px var(--shadow-color);
+    }
+
+    .movie-info-section {
+        flex: 1;
+    }
+
+    .title-section {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .movie-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-gold);
+        line-height: 1.2;
+        margin: 0;
+    }
+
+    .homepage-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        border-radius: 50%;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+        .homepage-link:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+
+    .movie-rating {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .stars {
+        display: flex;
+        gap: 5px;
+    }
+
+        .stars i {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+            .stars i.filled {
+                color: var(--accent-gold);
+            }
+
+    .rating-text {
+        font-size: 1.1rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .movie-tagline {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-bottom: 25px;
+    }
+
+    .movie-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 25px;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+    }
+
+        .meta-item i {
+            color: var(--accent-gold);
+        }
+
+    /* Film Türleri Bölümü */
+    .genres-section {
+        margin-bottom: 25px;
+    }
+
+    .genres-title {
+        color: var(--accent-gold);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    /* Film Açıklaması Bölümü */
+    .overview-section {
+        margin-bottom: 20px;
+    }
+
+    .overview-title {
+        color: var(--accent-gold);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .movie-overview {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* İçerik Kartları */
+    .content-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+        color: var(--accent-gold);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+    /* İstatistik Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+
+    .stat-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease;
+    }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+    .stat-icon {
+        font-size: 2rem;
+        color: var(--accent-gold);
+        margin-bottom: 15px;
+    }
+
+    .stat-value {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Detay Grid */
+    .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Etiketler */
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tag {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Bilgi Grid */
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+    }
+
+    .info-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+    .info-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+    }
+
+    .info-value {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+
+    .info-link {
+        color: var(--accent-gold);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        .info-link:hover {
+            text-decoration: underline;
+        }
+
+    /* Geri Dön Butonu */
+    .back-button-container {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 15px 30px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+    }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+        }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .movie-header-card
+
+    {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .movie-poster {
+        width: 250px;
+        height: 375px;
+        margin: 0 auto;
+    }
+
+    .title-section {
+        justify-content: center;
+    }
+
+    .movie-title {
+        font-size: 2rem;
+    }
+
+    .movie-meta {
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    }
+
+    @@media (max-width: 480px) {
+        .stats-grid
+
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .movie-title {
+        font-size: 1.5rem;
+    }
+
+    }
+</style>

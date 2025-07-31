@@ -1,0 +1,57 @@
+﻿@model List<TopRatedMovieDTOs>
+<div class="row">
+    <div class="col-12">
+        <h4 class="section-title">
+            <i class="fas fa-trophy mr-3" style="color: var(--accent-gold);"></i>
+            Öne Çıkan Filmler
+        </h4>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="movie-card">
+                <img src="@(string.IsNullOrEmpty(item.poster_path) ? "/images/default-poster.jpg" : $"https://image.tmdb.org/t/p/w500{item.poster_path}")" alt="@item.title" class="movie-poster">
+                     
+                <div class="movie-info">
+                    <div class="movie-header">
+                        <div class="movie-title">@item.title</div>
+                        <div class="movie-rating">
+                            <i class="fas fa-star"></i>
+                            @item.vote_average
+                        </div>
+                    </div>
+
+                    <div class="movie-details">
+                        <div class="detail-row">
+                            <span class="detail-label">OY SAYISI</span>
+                            <span class="detail-value">@item.vote_count.ToString("N0")</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">DURUM</span>
+                            <span class="detail-value">Released</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">YAYIN TARİHİ</span>
+                            <span class="detail-value">@(item.release_date?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("tr-TR")) ?? "Bilinmiyor")</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">SÜRE</span>
+                            <span class="detail-value">@(item.runtime?.ToString() ?? "Bilinmiyor") dakika</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">GELİR</span>
+                            <span class="detail-value">@(item.revenue > 0 ? $"${item.revenue:N0}" : "Bilinmiyor")</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">BÜTÇE</span>
+                            <span class="detail-value">@(item.budget > 0 ? $"${item.budget:N0}" : "Bilinmiyor")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+﻿<div class="row stats-row">
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stat-widget">
+            <div class="stat-icon">
+                <i class="fas fa-film"></i>
+            </div>
+            <div class="stat-number">
+                @if (ViewBag.TotalMovies >= 1000000)
+                {
+                    @((ViewBag.TotalMovies / 1000000.0).ToString("F1"))
+
+                    <span class="stat-unit">M</span>
+                }
+                else if (ViewBag.TotalMovies >= 1000)
+                {
+                    @((ViewBag.TotalMovies / 1000.0).ToString("F1"))
+
+                    <span class="stat-unit">K</span>
+                }
+                else
+                {
+                    @ViewBag.TotalMovies.ToString("N0")
+                }
+            </div>
+            <div class="stat-label">Toplam Film</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stat-widget">
+            <div class="stat-icon">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-number">@ViewBag.MostVotedMovieName</div>
+            <div class="stat-label">En Çok Oylanan Film Adı</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stat-widget">
+            <div class="stat-icon">
+                <i class="fas fa-eye"></i>
+            </div>
+            <div class="stat-number">@ViewBag.MostVotedMovieVotes</div>
+            <div class="stat-label">Atılan En Fazla Oy Sayısı</div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="stat-widget">
+            <div class="stat-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-number">@ViewBag.MostVotedMovieProducerCountry</div>
+            <div class="stat-label">En Fazla Oy Alan Filmin Ülkesi </div>
+        </div>
+    </div>
+</div>

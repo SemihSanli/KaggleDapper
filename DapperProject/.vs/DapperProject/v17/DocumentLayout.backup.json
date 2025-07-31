@@ -1,0 +1,379 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Semih\\Desktop\\DapperProject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\film\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\film\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\controllers\\filmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\controllers\\filmcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\film\\moviedetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\film\\moviedetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\dtos\\moviedtos\\moviesdetaildtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\dtos\\moviedtos\\moviesdetaildtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\services\\movieservice\\movieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\services\\movieservice\\movieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\services\\movieservice\\imovieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\services\\movieservice\\imovieservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\dtos\\moviedtos\\resultmoviedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\dtos\\moviedtos\\resultmoviedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\viewcomponents\\_worldmapstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\viewcomponents\\_worldmapstatistic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\viewcomponents\\_widgetpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\viewcomponents\\_widgetpart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\shared\\components\\_widgetpart\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\shared\\components\\_widgetpart\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\services\\dashboardservice\\dashboardservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\services\\dashboardservice\\dashboardservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\dtos\\dashboarddtos\\mostvotedmovienamedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\dtos\\dashboarddtos\\mostvotedmovienamedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\services\\dashboardservice\\idashboardservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\services\\dashboardservice\\idashboardservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\dtos\\dashboarddtos\\choosen5moviebymaxrevenueandmaxvotecountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\dtos\\dashboarddtos\\choosen5moviebymaxrevenueandmaxvotecountdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\dtos\\dashboarddtos\\topratedmoviedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\dtos\\dashboarddtos\\topratedmoviedtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\views\\shared\\components\\_worldmapstatistic\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\views\\shared\\components\\_worldmapstatistic\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|c:\\users\\semih\\desktop\\dapperproject\\dapperproject\\viewcomponents\\_featuremovies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9B0778D3-DDA2-4A22-87B2-3E0EC4F3F663}|DapperProject\\DapperProject.csproj|solutionrelative:dapperproject\\viewcomponents\\_featuremovies.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\appsettings.json",
+              "RelativeDocumentMoniker": "DapperProject\\appsettings.json",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\appsettings.json",
+              "RelativeToolTip": "DapperProject\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-31T14:28:02.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Program.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Program.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Program.cs",
+              "RelativeToolTip": "DapperProject\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T14:28:01.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_MainLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\_MainLayout.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Shared\\_MainLayout.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\_MainLayout.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Shared\\_MainLayout.cshtml",
+              "ViewState": "AgIAAA0BAAAAAAAAAADgvxwBAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T14:09:12.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Film\\Index.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Film\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Film\\Index.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Film\\Index.cshtml",
+              "ViewState": "AgIAAKACAAAAAAAAAAAjwK0CAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T12:54:27.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IMovieServices.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\MovieService\\IMovieServices.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Services\\MovieService\\IMovieServices.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\MovieService\\IMovieServices.cs",
+              "RelativeToolTip": "DapperProject\\Services\\MovieService\\IMovieServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T12:48:29.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MovieServices.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\MovieService\\MovieServices.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Services\\MovieService\\MovieServices.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\MovieService\\MovieServices.cs",
+              "RelativeToolTip": "DapperProject\\Services\\MovieService\\MovieServices.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAQwB0AAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T12:48:28.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MoviesDetailDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\MovieDTOs\\MoviesDetailDTOs.cs",
+              "RelativeDocumentMoniker": "DapperProject\\DTOs\\MovieDTOs\\MoviesDetailDTOs.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\MovieDTOs\\MoviesDetailDTOs.cs",
+              "RelativeToolTip": "DapperProject\\DTOs\\MovieDTOs\\MoviesDetailDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T12:47:28.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MovieDetail.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Film\\MovieDetail.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Film\\MovieDetail.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Film\\MovieDetail.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Film\\MovieDetail.cshtml",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAjwKcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T12:43:19.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FilmController.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Controllers\\FilmController.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Controllers\\FilmController.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Controllers\\FilmController.cs",
+              "RelativeToolTip": "DapperProject\\Controllers\\FilmController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwA8AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T12:38:36.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MostVotedMovieNameDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\MostVotedMovieNameDTOs.cs",
+              "RelativeDocumentMoniker": "DapperProject\\DTOs\\DashboardDTOs\\MostVotedMovieNameDTOs.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\MostVotedMovieNameDTOs.cs",
+              "RelativeToolTip": "DapperProject\\DTOs\\DashboardDTOs\\MostVotedMovieNameDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T12:05:24.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\Components\\_WidgetPart\\Default.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Shared\\Components\\_WidgetPart\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\Components\\_WidgetPart\\Default.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Shared\\Components\\_WidgetPart\\Default.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAAC0AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T11:29:38.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_WidgetPart.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_WidgetPart.cs",
+              "RelativeDocumentMoniker": "DapperProject\\ViewComponents\\_WidgetPart.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_WidgetPart.cs",
+              "RelativeToolTip": "DapperProject\\ViewComponents\\_WidgetPart.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAD4vxgAAABqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T11:28:55.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AgIAAFcBAAAAAAAAAAAAAGkBAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T11:25:06.376Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "DapperProject\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:31:59.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DashboardServices.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\DashboardService\\DashboardServices.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Services\\DashboardService\\DashboardServices.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\DashboardService\\DashboardServices.cs",
+              "RelativeToolTip": "DapperProject\\Services\\DashboardService\\DashboardServices.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:19:55.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IDashboardServices.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\DashboardService\\IDashboardServices.cs",
+              "RelativeDocumentMoniker": "DapperProject\\Services\\DashboardService\\IDashboardServices.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Services\\DashboardService\\IDashboardServices.cs",
+              "RelativeToolTip": "DapperProject\\Services\\DashboardService\\IDashboardServices.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:19:54.835Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ResultMovieDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\MovieDTOs\\ResultMovieDTOs.cs",
+              "RelativeDocumentMoniker": "DapperProject\\DTOs\\MovieDTOs\\ResultMovieDTOs.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\MovieDTOs\\ResultMovieDTOs.cs",
+              "RelativeToolTip": "DapperProject\\DTOs\\MovieDTOs\\ResultMovieDTOs.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:18:47.109Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "TopRatedMovieDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\TopRatedMovieDTOs.cs",
+              "RelativeDocumentMoniker": "DapperProject\\DTOs\\DashboardDTOs\\TopRatedMovieDTOs.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\TopRatedMovieDTOs.cs",
+              "RelativeToolTip": "DapperProject\\DTOs\\DashboardDTOs\\TopRatedMovieDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:19:02.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs.cs",
+              "RelativeDocumentMoniker": "DapperProject\\DTOs\\DashboardDTOs\\Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\DTOs\\DashboardDTOs\\Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs.cs",
+              "RelativeToolTip": "DapperProject\\DTOs\\DashboardDTOs\\Choosen5MovieByMaxRevenueAndMaxVoteCountDTOs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:18:58.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Default.cshtml",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\Components\\_WorldMapStatistic\\Default.cshtml",
+              "RelativeDocumentMoniker": "DapperProject\\Views\\Shared\\Components\\_WorldMapStatistic\\Default.cshtml",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\Views\\Shared\\Components\\_WorldMapStatistic\\Default.cshtml",
+              "RelativeToolTip": "DapperProject\\Views\\Shared\\Components\\_WorldMapStatistic\\Default.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-31T10:28:32.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_WorldMapStatistic.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_WorldMapStatistic.cs",
+              "RelativeDocumentMoniker": "DapperProject\\ViewComponents\\_WorldMapStatistic.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_WorldMapStatistic.cs",
+              "RelativeToolTip": "DapperProject\\ViewComponents\\_WorldMapStatistic.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:27:36.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_FeatureMovies.cs",
+              "DocumentMoniker": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_FeatureMovies.cs",
+              "RelativeDocumentMoniker": "DapperProject\\ViewComponents\\_FeatureMovies.cs",
+              "ToolTip": "C:\\Users\\Semih\\Desktop\\DapperProject\\DapperProject\\ViewComponents\\_FeatureMovies.cs",
+              "RelativeToolTip": "DapperProject\\ViewComponents\\_FeatureMovies.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-31T10:27:48.672Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

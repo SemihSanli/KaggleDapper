@@ -1,0 +1,364 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewData["Title"] = "Dashboard";
+}
+
+<!-- Chart.js ve diğer gerekli kütüphaneler -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<!-- ECharts için doğru CDN linkleri -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/js/world.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/map/json/world.json"></script>
+
+<!-- Google Fonts - Modern fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #0D0C1D;
+        --card-bg: #1B1A2F;
+        --accent-gold: #FFD700;
+        --text-primary: #FFFFFF;
+        --text-secondary: #CCCCCC;
+        --text-muted: #999999;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --hover-color: rgba(255, 215, 0, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container-fluid {
+        background: transparent;
+    }
+
+    .dashboard-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow-color);
+            border-color: var(--accent-gold);
+        }
+
+    .stat-widget {
+        background: var(--card-bg);
+        color: var(--text-primary);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .stat-widget:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-gold);
+            box-shadow: 0 8px 32px var(--shadow-color);
+        }
+
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        font-family: 'Poppins', sans-serif;
+        color: var(--accent-gold);
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        opacity: 0.9;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-secondary);
+    }
+
+    .stat-icon {
+        font-size: 3rem;
+        opacity: 0.8;
+        margin-bottom: 20px;
+        color: var(--accent-gold);
+    }
+
+    .chart-container {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        margin-bottom: 30px;
+        height: 400px;
+        position: relative;
+        border: 1px solid var(--border-color);
+    }
+
+    .movie-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        transition: all 0.3s ease;
+        height: 100%;
+        border: 1px solid var(--border-color);
+        position: relative;
+    }
+
+        .movie-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 48px var(--shadow-color);
+            border-color: var(--accent-gold);
+        }
+
+    .movie-poster {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: all 0.4s ease;
+    }
+
+    .movie-card:hover .movie-poster {
+        transform: scale(1.05);
+    }
+
+    .movie-info {
+        padding: 25px;
+        background: var(--card-bg);
+        height: 100%;
+    }
+
+    .movie-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .movie-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-family: 'Poppins', sans-serif;
+        flex: 1;
+        margin: 0;
+    }
+
+    .movie-rating {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        white-space: nowrap;
+    }
+
+    .movie-details {
+        margin-bottom: 15px;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.85rem;
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 0.85rem;
+        text-align: right;
+    }
+
+    .movie-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .tag {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .tag:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+    .movie-production {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .production-tag {
+        background: var(--text-secondary);
+        color: var(--bg-primary);
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .production-tag:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+    .movie-overview {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.6;
+        font-weight: 400;
+        border-top: 1px solid var(--border-color);
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    .world-map-container {
+        height: 400px;
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        position: relative;
+        border: 1px solid var(--border-color);
+    }
+
+    .section-title {
+        color: var(--accent-gold);
+        font-weight: 600;
+        margin-bottom: 25px;
+        font-size: 1.6rem;
+        font-family: 'Poppins', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+
+    .stats-row {
+        margin-bottom: 40px;
+    }
+
+    .budget-runtime-card {
+        background: var(--card-bg);
+        border: 1px solid var(--accent-gold);
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        transition: all 0.3s ease;
+    }
+
+        .budget-runtime-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 40px var(--shadow-color);
+        }
+
+    .budget-runtime-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--accent-gold);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .budget-runtime-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* Chart.js özelleştirmeleri */
+    .chart-container canvas {
+        filter: drop-shadow(0 0 10px var(--shadow-color));
+    }
+
+    /* Scrollbar özelleştirme */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--accent-gold);
+        border-radius: 4px;
+    }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-primary);
+        }
+</style>
+
+<div class="container-fluid">
+    <!-- İstatistik Widget'ları -->
+    @await Component.InvokeAsync("_WidgetPart")
+
+    <!-- Dünya Haritası ve Tür Grafiği -->
+    @await Component.InvokeAsync("_WorldMapStatistic")
+
+    <!-- Öne Çıkan Filmler -->
+    @await Component.InvokeAsync("_FeatureMovies")
+</div>
+

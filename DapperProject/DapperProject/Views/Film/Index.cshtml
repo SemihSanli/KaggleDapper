@@ -1,0 +1,754 @@
+@model List<DapperProject.DTOs.MovieDTOs.ResultMovieDTOs>
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ViewData["Title"] = "Film Listesi";
+}
+
+<!-- Google Fonts - Modern fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    :root {
+        --bg-primary: #0D0C1D;
+        --card-bg: #1B1A2F;
+        --accent-gold: #FFD700;
+        --text-primary: #FFFFFF;
+        --text-secondary: #CCCCCC;
+        --text-muted: #999999;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --hover-color: rgba(255, 215, 0, 0.1);
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .container-fluid {
+        background: transparent;
+    }
+
+    /* Filter Section */
+    .filter-section {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 25px;
+        margin-bottom: 30px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 8px 32px var(--shadow-color);
+    }
+
+    .filter-title {
+        color: var(--accent-gold);
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .filter-group {
+        margin-bottom: 20px;
+    }
+
+    .filter-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+    .filter-select, .filter-input {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        border-radius: 8px;
+        padding: 10px 15px;
+        width: 100%;
+        font-family: 'Poppins', sans-serif;
+    }
+
+        .filter-select:focus, .filter-input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+
+        .filter-select option {
+            background: var(--card-bg);
+            color: var(--text-primary);
+        }
+
+    .search-btn {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+        .search-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: translateY(-2px);
+        }
+
+    /* Movie Cards */
+    .movie-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px var(--shadow-color);
+        transition: all 0.3s ease;
+        height: 700px;
+        border: 1px solid var(--border-color);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 700px;
+    }
+
+        .movie-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 16px 48px var(--shadow-color);
+            border-color: var(--accent-gold);
+        }
+
+    .movie-poster-container {
+        position: relative;
+        flex-shrink: 0;
+        height: 400px;
+        min-height: 400px;
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .movie-poster {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: all 0.3s ease;
+        background: var(--card-bg);
+    }
+
+    .movie-card:hover .movie-poster {
+        transform: scale(1.05);
+    }
+
+    /* Detail Button Overlay */
+    .detail-button-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(13, 12, 29, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(2px);
+    }
+
+    .movie-card:hover .detail-button-overlay {
+        opacity: 1;
+    }
+
+    .detail-button {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        border: none;
+        border-radius: 25px;
+        padding: 12px 24px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+        .detail-button:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            text-decoration: none;
+        }
+
+    .movie-info {
+        padding: 20px;
+        background: var(--card-bg);
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .movie-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .movie-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-family: 'Poppins', sans-serif;
+        flex: 1;
+        margin: 0;
+    }
+
+    .movie-rating {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        white-space: nowrap;
+    }
+
+    .movie-details {
+        margin-bottom: 15px;
+    }
+
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-color);
+        font-size: 0.85rem;
+    }
+
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+
+    .detail-label {
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 0.85rem;
+        text-align: right;
+    }
+
+    .movie-overview {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        line-height: 1.4;
+        font-weight: 400;
+        border-top: 1px solid var(--border-color);
+        padding-top: 10px;
+        margin-top: 10px;
+        flex: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        max-height: 60px;
+    }
+
+    .movie-tags {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .tag {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .tag:hover {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+    .movie-production {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .production-tag {
+        background: var(--text-secondary);
+        color: var(--bg-primary);
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .production-tag:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            transform: scale(1.05);
+        }
+
+    /* Pagination */
+    .pagination-container {
+        background: var(--card-bg);
+        border-radius: 16px;
+        padding: 20px;
+        margin-top: 30px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 8px 32px var(--shadow-color);
+    }
+
+    .pagination {
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .page-link {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        padding: 10px 15px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-family: 'Poppins', sans-serif;
+    }
+
+        .page-link:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+    .page-item.active .page-link {
+        background: var(--accent-gold);
+        color: var(--bg-primary);
+        border-color: var(--accent-gold);
+    }
+
+    .page-item.disabled .page-link {
+        background: var(--card-bg);
+        color: var(--text-muted);
+        border-color: var(--border-color);
+    }
+
+    /* Results Info */
+    .results-info {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .filter-section
+
+    {
+        padding: 20px;
+    }
+
+    .movie-card {
+        margin-bottom: 20px;
+        height: 650px;
+        min-height: 650px;
+    }
+
+    .movie-info {
+        padding: 15px;
+    }
+
+    .movie-poster-container {
+        height: 320px;
+        min-height: 320px;
+        max-height: 320px;
+    }
+
+    .movie-title {
+        font-size: 1.1rem;
+    }
+
+    .movie-details {
+        margin-bottom: 10px;
+    }
+
+    .detail-row {
+        padding: 6px 0;
+        font-size: 0.8rem;
+    }
+
+    .detail-button {
+        padding: 10px 20px;
+        font-size: 0.8rem;
+    }
+
+    }
+
+    @@media (max-width: 576px) {
+        .movie-card
+
+    {
+        height: 600px;
+        min-height: 600px;
+    }
+
+    .movie-poster-container {
+        height: 280px;
+        min-height: 280px;
+        max-height: 280px;
+    }
+
+    .movie-info {
+        padding: 12px;
+    }
+
+    .movie-title {
+        font-size: 1rem;
+    }
+
+    .movie-rating {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+
+    .detail-button {
+        padding: 8px 16px;
+        font-size: 0.75rem;
+    }
+
+    }
+
+    /* 2K and 4K Screens */
+    @@media (min-width: 2560px) {
+        .movie-card
+
+    {
+        height: 800px;
+        min-height: 800px;
+    }
+
+    .movie-poster-container {
+        height: 450px;
+        min-height: 450px;
+        max-height: 450px;
+    }
+
+    .movie-title {
+        font-size: 1.4rem;
+    }
+
+    .movie-info {
+        padding: 25px;
+    }
+
+    .detail-button {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
+
+    }
+
+    @@media (min-width: 3840px) {
+        .movie-card
+
+    {
+        height: 900px;
+        min-height: 900px;
+    }
+
+    .movie-poster-container {
+        height: 500px;
+        min-height: 500px;
+        max-height: 500px;
+    }
+
+    .movie-title {
+        font-size: 1.5rem;
+    }
+
+    .movie-info {
+        padding: 30px;
+    }
+
+    .detail-button {
+        padding: 18px 36px;
+        font-size: 1.1rem;
+    }
+
+    }
+</style>
+
+<div class="container-fluid">
+    <!-- Filter Section -->
+    <form method="get" action="@Url.Action("Index", "Film")">
+        <div class="filter-section">
+            <h4 class="filter-title">
+                <i class="fas fa-filter mr-3" style="color: var(--accent-gold);"></i>
+                Film Filtreleme
+            </h4>
+
+            <div class="row">
+                <!-- Çıkış Yılı -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="filter-group">
+                        <label class="filter-label">Çıkış Yılı</label>
+                        <select name="year" class="filter-select">
+                            <option value="">Tüm Yıllar</option>
+                            @for (int i = 0; i <= 74; i++)
+                            {
+                                var year = 2024 - i;
+                                var isSelected = ViewBag.YearFilter?.ToString() == year.ToString() ? "selected" : "";
+                                <option value="@year" @isSelected>@year</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sıralama -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="filter-group">
+                        <label class="filter-label">Sıralama</label>
+                        <select name="sort" class="filter-select">
+                            <option value="">Varsayılan</option>
+                            @{
+                                var highToLowSelected = ViewBag.SortFilter?.ToString() == "high_to_low" ? "selected" : "";
+                                var lowToHighSelected = ViewBag.SortFilter?.ToString() == "low_to_high" ? "selected" : "";
+                                var newestSelected = ViewBag.SortFilter?.ToString() == "newest" ? "selected" : "";
+                                var oldestSelected = ViewBag.SortFilter?.ToString() == "oldest" ? "selected" : "";
+                                var mostVotedSelected = ViewBag.SortFilter?.ToString() == "most_voted" ? "selected" : "";
+                                var leastVotedSelected = ViewBag.SortFilter?.ToString() == "least_voted" ? "selected" : "";
+                            }
+                            <option value="high_to_low" @highToLowSelected>En Yüksek Puan</option>
+                            <option value="low_to_high" @lowToHighSelected>En Düşük Puan</option>
+                            <option value="newest" @newestSelected>En Yeni</option>
+                            <option value="oldest" @oldestSelected>En Eski</option>
+                            <option value="most_voted" @mostVotedSelected>En Çok Oy Alan</option>
+                            <option value="least_voted" @leastVotedSelected>En Az Oy Alan</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Tür -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="filter-group">
+                        <label class="filter-label">Tür</label>
+                        <select name="genre" class="filter-select">
+                            <option value="">Tüm Türler</option>
+                            @{
+                                var actionSelected = ViewBag.GenreFilter?.ToString() == "Action" ? "selected" : "";
+                                var dramaSelected = ViewBag.GenreFilter?.ToString() == "Drama" ? "selected" : "";
+                                var comedySelected = ViewBag.GenreFilter?.ToString() == "Comedy" ? "selected" : "";
+                                var thrillerSelected = ViewBag.GenreFilter?.ToString() == "Thriller" ? "selected" : "";
+                                var horrorSelected = ViewBag.GenreFilter?.ToString() == "Horror" ? "selected" : "";
+                                var romanceSelected = ViewBag.GenreFilter?.ToString() == "Romance" ? "selected" : "";
+                                var scifiSelected = ViewBag.GenreFilter?.ToString() == "Sci-Fi" ? "selected" : "";
+                                var documentarySelected = ViewBag.GenreFilter?.ToString() == "Documentary" ? "selected" : "";
+                                var animationSelected = ViewBag.GenreFilter?.ToString() == "Animation" ? "selected" : "";
+                                var crimeSelected = ViewBag.GenreFilter?.ToString() == "Crime" ? "selected" : "";
+                            }
+                            <option value="Action" @actionSelected>Aksiyon</option>
+                            <option value="Drama" @dramaSelected>Drama</option>
+                            <option value="Comedy" @comedySelected>Komedi</option>
+                            <option value="Thriller" @thrillerSelected>Gerilim</option>
+                            <option value="Horror" @horrorSelected>Korku</option>
+                            <option value="Romance" @romanceSelected>Romantik</option>
+                            <option value="Sci-Fi" @scifiSelected>Bilim Kurgu</option>
+                            <option value="Documentary" @documentarySelected>Belgesel</option>
+                            <option value="Animation" @animationSelected>Animasyon</option>
+                            <option value="Crime" @crimeSelected>Suç</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Arama -->
+                <div class="col-lg-4 col-md-8 col-sm-12 mb-3">
+                    <div class="filter-group">
+                        <label class="filter-label">Film Ara</label>
+                        <div class="input-group">
+                            <input type="text" name="search" class="filter-input" placeholder="Film adı, yönetmen, oyuncu..." value="@(ViewBag.SearchFilter ?? "")">
+                            <div class="input-group-append">
+                                <button class="search-btn" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtrele Butonu -->
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="filter-group">
+                        <label class="filter-label">&nbsp;</label>
+                        <button class="search-btn w-100" type="submit">
+                            <i class="fas fa-filter mr-2"></i>
+                            Filtrele
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Results Info -->
+    <div class="results-info">
+        <i class="fas fa-film mr-2" style="color: var(--accent-gold);"></i>
+        Toplam <strong>@ViewBag.TotalCount</strong> film bulundu. Sayfa <strong>@ViewBag.CurrentPage</strong> / <strong>@ViewBag.TotalPages</strong>
+    </div>
+
+    <!-- Movie Grid -->
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var movie in Model)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                    <div class="movie-card">
+                        <div class="movie-poster-container">
+                            <img src="@(string.IsNullOrEmpty(movie.poster_path) ? "/images/default-poster.jpg" : $"https://image.tmdb.org/t/p/w500{movie.poster_path}")" alt="@movie.title" class="movie-poster">
+                            <div class="detail-button-overlay">
+                                <a href="/Film/MovieDetail/@movie.id" class="detail-button">
+                                    <i class="fas fa-eye"></i>
+                                    Detaya Git
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <div class="movie-header">
+                                <div class="movie-title">@movie.title</div>
+
+                                <div class="movie-rating">
+                                    <i class="fas fa-star"></i>
+                                    @movie.vote_average.ToString("F1")
+                                </div>
+                            </div>
+
+                            <div class="movie-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">TÜR</span>
+                                    <span class="detail-value">@movie.genres</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">OY SAYISI</span>
+                                    <span class="detail-value">@movie.vote_count.ToString("N0")</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">YAYIN TARİHİ</span>
+                                    <span class="detail-value">@(movie.release_date?.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("tr-TR")) ?? "Bilinmiyor")</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">SÜRE</span>
+                                    <span class="detail-value">@(movie.runtime?.ToString() ?? "Bilinmiyor") dakika</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12 text-center">
+                <div style="color: var(--text-muted); font-size: 1.2rem; padding: 50px;">
+                    <i class="fas fa-film" style="font-size: 3rem; margin-bottom: 20px; display: block; color: var(--accent-gold);"></i>
+                    Film bulunamadı.
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Pagination -->
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="pagination-container">
+            <nav aria-label="Film sayfaları">
+                <ul class="pagination">
+                    @{
+                        var currentPage = ViewBag.CurrentPage;
+                        var totalPages = ViewBag.TotalPages;
+                        var startPage = Math.Max(1, currentPage - 5);
+                        var endPage = Math.Min(totalPages, currentPage + 5);
+                    }
+
+                    <!-- Previous Page -->
+                    @if (currentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Index", "Film", new { page = currentPage - 1, year = ViewBag.YearFilter, sort = ViewBag.SortFilter, genre = ViewBag.GenreFilter, search = ViewBag.SearchFilter })">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+                    }
+
+                    <!-- Page Numbers -->
+                    @for (int i = startPage; i <= endPage; i++)
+                    {
+                        var pageClass = i == currentPage ? "active" : "";
+                        <li class="page-item @pageClass">
+                            <a class="page-link" href="@Url.Action("Index", "Film", new { page = i, year = ViewBag.YearFilter, sort = ViewBag.SortFilter, genre = ViewBag.GenreFilter, search = ViewBag.SearchFilter })">@i</a>
+                        </li>
+                    }
+
+                    <!-- Next Page -->
+                    @if (currentPage < totalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="@Url.Action("Index", "Film", new { page = currentPage + 1, year = ViewBag.YearFilter, sort = ViewBag.SortFilter, genre = ViewBag.GenreFilter, search = ViewBag.SearchFilter })">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    }
+</div>

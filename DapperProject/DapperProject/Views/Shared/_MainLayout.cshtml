@@ -1,0 +1,395 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dapper Project</title>
+
+    <!-- Google Fonts - Modern fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/plugins/fullcalendar/main.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/AdminLTE-3.1.0/dist/css/adminlte.min.css">
+    
+    <!-- Custom CSS for modern theme -->
+    <style>
+        :root {
+            --bg-primary: #0D0C1D;
+            --card-bg: #1B1A2F;
+            --accent-gold: #FFD700;
+            --text-primary: #FFFFFF;
+            --text-secondary: #CCCCCC;
+            --text-muted: #999999;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --hover-color: rgba(255, 215, 0, 0.1);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+        
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .main-sidebar {
+            background: var(--card-bg) !important;
+            border-right: 1px solid var(--border-color) !important;
+        }
+        
+        .main-sidebar .brand-link {
+            background: var(--card-bg) !important;
+            border-bottom: 1px solid var(--border-color) !important;
+        }
+        
+        .main-sidebar .brand-text {
+            color: var(--accent-gold) !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+        
+        .main-sidebar .nav-sidebar .nav-link {
+            color: var(--text-secondary) !important;
+            border-radius: 8px;
+            margin: 2px 10px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .main-sidebar .nav-sidebar .nav-link:hover {
+            background: var(--hover-color) !important;
+            color: var(--accent-gold) !important;
+            transform: translateX(5px);
+            border-color: var(--accent-gold);
+        }
+        
+        .main-sidebar .nav-sidebar .nav-link.active {
+            background: var(--accent-gold) !important;
+            color: var(--bg-primary) !important;
+            font-weight: 600;
+        }
+        
+        .main-sidebar .nav-sidebar .nav-icon {
+            color: var(--accent-gold) !important;
+        }
+        
+        .main-sidebar .nav-sidebar .nav-link:hover .nav-icon,
+        .main-sidebar .nav-sidebar .nav-link.active .nav-icon {
+            color: var(--bg-primary) !important;
+        }
+        
+        .main-sidebar .user-panel {
+            border-bottom: 1px solid var(--border-color) !important;
+        }
+        
+        .main-sidebar .user-panel .info a {
+            color: var(--text-primary) !important;
+            font-weight: 500;
+        }
+        
+        .main-sidebar .form-inline .form-control {
+            background: rgba(255,255,255,0.05) !important;
+            border: 1px solid var(--border-color) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        .main-sidebar .form-inline .form-control::placeholder {
+            color: var(--text-muted) !important;
+        }
+        
+        .main-sidebar .btn-sidebar {
+            background: var(--accent-gold) !important;
+            border: 1px solid var(--accent-gold) !important;
+            color: var(--bg-primary) !important;
+        }
+        
+        .main-header {
+            background: var(--card-bg) !important;
+            border-bottom: 1px solid var(--border-color) !important;
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+        
+        .main-header .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .main-header .navbar-nav .nav-link:hover {
+            color: var(--accent-gold) !important;
+        }
+        
+        .content-wrapper {
+            background: transparent !important;
+        }
+        
+        .content-header {
+            background: var(--card-bg) !important;
+            color: var(--text-primary) !important;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .content-header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--accent-gold);
+        }
+        
+        .breadcrumb-item a {
+            color: var(--accent-gold) !important;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--text-secondary) !important;
+        }
+        
+        .main-footer {
+            background: var(--card-bg) !important;
+            color: var(--text-secondary) !important;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .main-footer a {
+            color: var(--accent-gold) !important;
+        }
+        
+        /* Notification styling */
+        .navbar-badge {
+            background: var(--accent-gold) !important;
+            color: var(--bg-primary) !important;
+        }
+        
+        .dropdown-menu {
+            background: var(--card-bg) !important;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px var(--shadow-color);
+        }
+        
+        .dropdown-item {
+            color: var(--text-primary) !important;
+        }
+        
+        .dropdown-item:hover {
+            background: var(--hover-color) !important;
+            color: var(--accent-gold) !important;
+        }
+        
+        .dropdown-header {
+            color: var(--accent-gold) !important;
+            font-weight: 600;
+        }
+        
+        /* Search styling */
+        .navbar-search-block {
+            background: var(--card-bg) !important;
+            border: 1px solid var(--border-color);
+        }
+        
+        .form-control-navbar {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid var(--border-color) !important;
+            color: var(--text-primary) !important;
+        }
+        
+        .form-control-navbar::placeholder {
+            color: var(--text-muted) !important;
+        }
+        
+        .btn-navbar {
+            background: var(--accent-gold) !important;
+            border: 1px solid var(--accent-gold) !important;
+            color: var(--bg-primary) !important;
+        }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                   
+                </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <div class="navbar-search-block">
+                        <form class="form-inline">
+                            <div class="input-group input-group-sm">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Ara..." aria-label="Search">
+                                <div class="input-group-append">
+                                    <button class="btn btn-navbar" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">3</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">3 Bildirim</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 yeni mesaj
+                            <span class="float-right text-muted text-sm">3 dk</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 arkadaş isteği
+                            <span class="float-right text-muted text-sm">12 saat</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 yeni rapor
+                            <span class="float-right text-muted text-sm">2 gün</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">Tüm Bildirimleri Gör</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/" class="brand-link">
+                
+                <span class="brand-text font-weight-light">Dapper Project</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+
+                <!-- SidebarSearch Form -->
+                <div class="form-inline">
+                    <div class="input-group" data-widget="sidebar-search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Ara..." aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-sidebar">
+                                <i class="fas fa-search fa-fw"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Dashboard -->
+                        <li class="nav-item">
+                            <a href="/Dashboard" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard
+                                </p>
+                            </a>
+                        </li>
+                        
+                        <!-- Film Listesi -->
+                        <li class="nav-item">
+                            <a href="/Film" class="nav-link">
+                                <i class="nav-icon fas fa-film"></i>
+                                <p>
+                                    Film Listesi
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>@ViewData["Title"]</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="/">Anasayfa</a></li>
+                                <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2024 <a href="#">Dapper Project</a>.</strong> Tüm hakları saklıdır.
+        </footer>
+
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+    <!-- ./wrapper -->
+    
+    <!-- jQuery -->
+    <script src="~/AdminLTE-3.1.0/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/AdminLTE-3.1.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/AdminLTE-3.1.0/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/AdminLTE-3.1.0/dist/js/adminlte.min.js"></script>
+    <!-- fullCalendar 2.2.5 -->
+    <script src="~/AdminLTE-3.1.0/plugins/moment/moment.min.js"></script>
+    <script src="~/AdminLTE-3.1.0/plugins/fullcalendar/main.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/AdminLTE-3.1.0/dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
